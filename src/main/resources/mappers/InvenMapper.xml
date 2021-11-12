@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.InvenDAO">
+	<select id="getProdData"
+		resultType="com.example.demo.dto.InvenDTO">
+		select
+		productNo,
+		numOfProd
+		from
+		products
+	</select>
+
+	<update id="setProdData"
+		parameterType="com.example.demo.dto.InvenDTO">
+		UPDATE products
+		SET
+		numOfProd = #{number}
+		WHERE productNo =
+		#{productNo}
+	</update>
+
+	<insert id="insertProdData"
+		parameterType="com.example.demo.dto.InvenDTO">
+		INSERT INTO products (productNo, numOfProd) VALUES
+		(#{productNo}, #{number})
+	</insert>
+
+	<delete id="delProdData">
+		DELETE FROM products 
+		WHERE productNo =
+		#{productNo}
+	</delete>
+
+</mapper>
